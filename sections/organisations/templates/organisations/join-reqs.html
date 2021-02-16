@@ -1,0 +1,14 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h2>Active Requests</h2>
+    <ol>
+        {% for req in join_requests %}
+            <li>
+                {{ req.name }}  |   {{ req.administrator.username }}<br>
+                <a href="{% url 'organisations:accept_joinreq_path' id=req.id %}">Accept</a>    |   
+                <a href="{% url 'organisations:decline_joinreq_path' id=req.id %}">Decline</a>
+            </li>
+        {% endfor %}
+    </ol>
+{% endblock %}

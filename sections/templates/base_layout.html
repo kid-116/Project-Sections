@@ -7,6 +7,28 @@
     <body>
         <header class="primary-header">
             <h1>Welcome to Sections</h1>
+            <nav>
+                <ul>
+                    {% if user.is_authenticated %}
+                        <li>
+                            {{ user.username }}
+                        </li>
+                        <li>
+                            <form class="logout-link" action="{% url 'accounts:logout_path' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit">Logout</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'accounts:login_path' %}">Login</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'accounts:signup_path' %}">Signup</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
         </header>
         <div class="wrapper">
             {% block content %}

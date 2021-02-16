@@ -1,0 +1,31 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h2>Student Wall</h2>
+    <ul>
+        {% if user.is_staff %}
+            <li>
+                <a href="{% url 'walls:administrator_path' %}">Administrator Wall</a>
+            </li>
+        {% endif %}
+        <li>
+            <a href="{% url 'organisations:joinreq_path' %}">Join an Organisation</a>
+        </li>
+    </ul>
+    <h3>Joined Organisations</h3>
+    <ul>
+        {% for org in request.user.belong_to.all %}
+            <li>
+                {{ org.name }}
+            </li>
+        {% endfor %}
+    </ul>
+    <h3>Org Join Requests</h3>
+    <ul>
+        {% for req in request.user.org_joinreqs.all %}
+            <li>
+                {{ req.org }}   |   {{ req.date_created }}  |   {{ req.accepted }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

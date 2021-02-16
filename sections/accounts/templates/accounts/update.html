@@ -1,0 +1,10 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h2>Update Your Account</h2>
+    <form class="site-form" action="{% url 'accounts:update_account_path' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Update">
+    </form>
+{% endblock %}
