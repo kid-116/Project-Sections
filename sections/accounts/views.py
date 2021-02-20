@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from .forms import AccountSignupForm, AccountAuthenticationForm, AccountUpdateForm
+from django import forms
 
 
 def signup_account(request):
@@ -19,10 +20,11 @@ def signup_account(request):
         form = AccountSignupForm()
     return render(request, "accounts/signup.html", { 'form': form })
 
+
 def logout_account(request):
-    if request.method == "POST":
-        logout(request)
-        return redirect('homepage_path')
+    logout(request)
+    return redirect('homepage_path')
+
 
 def login_account(request):
     user = request.user
@@ -40,9 +42,12 @@ def login_account(request):
                     return redirect(request.POST.get('next'))
                 else:
                     return redirect('walls:home_path')
+        # else:
+        #     form.add_error(forms.forms.NON_FIELD_ERRORS, "Invalid login credentials")
     else:
         form = AccountAuthenticationForm()
     return render(request, 'accounts/login.html', { 'form': form })
+
 
 def update_account(request):
     if not request.user.is_authenticated:
@@ -56,7 +61,6 @@ def update_account(request):
         form = AccountUpdateForm(
             initial={
                 'email': request.user.email,
-                'username': request.user.username,
             }
         )
     return render(request, 'accounts/update.html', { 'form': form })

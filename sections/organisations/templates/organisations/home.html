@@ -2,13 +2,13 @@
 
 {% block content %}
     <h2>{{ org.name }} Home</h2>
-    <h3>User Join Requests</h3>
+    <h3>Join Requests</h3>
     <ul>
         {% for joinreq in joinreqs %}
             <li>
                 {{ joinreq.account.username }}  |   {{ joinreq.account.role }}<br>
-                <a href="{% url 'organisations:accept_user_joinreq_path' id_o=org.id id_j=joinreq.id %}">Accept</a>    |   
-                <a href="{% url 'organisations:decline_user_joinreq_path' id_o=org.id id_j=joinreq.id %}">Decline</a>
+                <a href="{% url 'organisations:accept_joinreq_path' id_o=org.id id_j=joinreq.id %}">Accept</a>    |   
+                <a href="{% url 'organisations:decline_joinreq_path' id_o=org.id id_j=joinreq.id %}">Decline</a>
             </li>
         {% endfor %}
     </ul>
@@ -16,7 +16,7 @@
     <h3>Existing Sections</h3>
     <ul>
         {% for bracket in org.brackets.all %}
-            <li>{{ bracket.name }}</li>
+            <li><a href="{% url 'brackets:home_path' id_b=bracket.id %}">{{ bracket.name }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

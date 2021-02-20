@@ -1,5 +1,5 @@
 from django import forms
-from .models import Bracket
+from .models import Bracket, JoinRequest
 
 
 class BracketCreationForm(forms.ModelForm):
@@ -9,10 +9,3 @@ class BracketCreationForm(forms.ModelForm):
             'name',
             'graduation_year',
         ]
-
-# class JoinRequestCreationForm(forms.ModelForm):
-#     class Meta:
-#         model = JoinRequest
-#         fields = [
-#             'bracket',
-#         ]

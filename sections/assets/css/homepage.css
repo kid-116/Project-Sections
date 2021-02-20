@@ -1,0 +1,102 @@
+body {
+    background: #57bc90;
+    background: linear-gradient(to right bottom, #77c9d4, #57bc90);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Garamond";
+    color: #fff;
+}
+
+header {
+    text-align: center;
+}
+
+span {
+    font-size: 50px;
+    font-variant: small-caps;
+    letter-spacing: 3px;
+}
+
+h1 {
+    font-size: 350px;
+    font-family: ui-rounded
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 5px;
+}
+
+h3 {
+    font-size: 30px;
+    font-family: serif;
+    font-style: italic;
+    letter-spacing: 4px;
+}
+
+ul {
+    margin: 50px 0 0 0;
+}
+
+li {
+    display:inline-block;
+    margin: 0 20px;
+    font-size: 18px;
+    font-style: italic;
+    letter-spacing: 1px;
+    color: #015249;
+}
+
+.login,
+.signup {
+    display: inline-block;
+    border: 1px solid #fff;
+    padding: 10px 30px;
+    font-size: 40px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 120px;
+}
+
+.login:hover,
+.signup:hover {
+    background: #fff;
+}
+
+
+a:link,
+a:visited {
+    font-style: normal;
+    text-decoration: none;
+    color: #015249;
+    font-variant: small-caps;
+    letter-spacing: 2px;
+    font-family: monospace;
+}
+
+
+div {
+    display: inline-block;
+}
+
+ul div:first-child {
+    border-right: 2px solid #015249;
+}
+
+.reg-org {
+    padding: 5px 25px;
+    display: inline-block;
+    font-size: 25px;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.reg-org:hover {
+    background: #fff;
+}
+
+.regorg-head {
+    font-size: 70px;
+}
+
+

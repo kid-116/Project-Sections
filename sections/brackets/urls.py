@@ -7,10 +7,10 @@ app_name = 'brackets'
 
 
 urlpatterns = [
-    path('create/at/<int:id_o>', views.create, name="create_path"),
-    # url('index-joinreqs/', views.index_joinreqs, name="index_joinreqs_path"),
-    # url('index/', views.index, name="index_brackets_path"),
-    # url('join/', views.join, name="join_bracket_path"),
-    # path('areq/<int:id>/', views.accept_join_req, name="accept_req_path"),
-    # path('dreq/<int:id>/', views.decline_join_req, name="decline_req_path"),
+    path('create/at/<int:id_o>/', views.create, name="create_path"),
+    path('<int:id_b>/home/', views.home, name="home_path"),
+    path('create_joinreq/at/<int:id_b>/', views.create_joinreq, name="create_joinreq_path"),
+    path('<int:id_o>/index/', views.index, name="index_path"),
+    path('areq/<int:id_r>/', views.accept_joinreq, name="accept_joinreq_path"),
+    path('dreq/<int:id_r>/', views.decline_joinreq, name="decline_joinreq_path"),
 ]

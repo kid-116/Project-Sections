@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 
 def homepage(request):
-    return render(request, 'homepage.html')
+    if request.user.is_authenticated:
+        return redirect('walls:home_path')
+    else:
+        return render(request, 'homepage.html')

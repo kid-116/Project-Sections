@@ -16,7 +16,8 @@
     <ul>
         {% for org in request.user.belong_to.all %}
             <li>
-                {{ org.name }}
+                {{ org.name }}<br>
+                <a href="{% url 'brackets:index_path' id_o=org.id %}">Join a Section</a>
             </li>
         {% endfor %}
     </ul>

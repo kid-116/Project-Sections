@@ -28,13 +28,16 @@ class Bracket(models.Model):
         return self.name + '-' + self.organisation.name
 
         
-# class JoinRequest(models.Model):
-#     id = models.AutoField(primary_key=True)
-#     account = models.ForeignKey(Account, on_delete=models.CASCADE, default=None, related_name="join_requests")
-#     bracket = models.ForeignKey(Bracket, on_delete=models.CASCADE, default=None, related_name="join_requests")
-#     date_created = models.DateTimeField(auto_now_add=True)
-#     accepted = models.BooleanField(default=None, null=True)
-#     is_active = models.BooleanField(default=True, verbose_name='Active')
+class JoinRequest(models.Model):
+    id = models.AutoField(primary_key=True)
+    account = models.ForeignKey(Account, on_delete=models.CASCADE, default=None, related_name="join_requests")
+    bracket = models.ForeignKey(
+        Bracket, 
+        on_delete=models.CASCADE, 
+        default=None, 
+        related_name="join_requests")
+    date_created = models.DateTimeField(auto_now_add=True)
+    accepted = models.BooleanField(default=None, null=True)
 
-#     def __str__(self):
-#         return self.account.username+'-'+self.bracket.name
+    def __str__(self):
+        return self.account.username + '-' + self.bracket.name

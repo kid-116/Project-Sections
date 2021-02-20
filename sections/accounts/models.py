@@ -36,8 +36,8 @@ class Account(AbstractBaseUser):
         STUDENT = 'S', "Student"
         TECAHER = 'T', "Teacher"
         SYSTEM_MANAGER = 'M', "System Manager" 
-    email = models.EmailField(verbose_name="Email", max_length=60, unique=True)
-    username = models.CharField(verbose_name="Username", max_length=30, unique=True)
+    email = models.EmailField(max_length=60, unique=True)
+    username = models.CharField(max_length=30, unique=True)
     date_joined = models.DateTimeField(verbose_name='Date Joined', auto_now_add=True)
     last_login = models.DateTimeField(verbose_name="Last Login", auto_now=True)
     role = models.CharField(verbose_name="Role", choices=Role.choices, default=Role.STUDENT, max_length=10)

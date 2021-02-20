@@ -1,5 +1,12 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
-    <h2>Sections Index</h2>
+    <h2>Join a Section</h2>
+    <ul>
+        {% for section in sections %}
+            <li>
+                <a href="{% url 'brackets:create_joinreq_path' id_b=section.id %}">{{ section.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
@@ -9,5 +10,8 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('orgs/', include('organisations.urls')),
     path('wall/', include('walls.urls')),
-    path('brackets/', include('brackets.urls')),
+    path('orgs/brackets/', include('brackets.urls')),
 ]
+
+
+urlpatterns += staticfiles_urlpatterns()

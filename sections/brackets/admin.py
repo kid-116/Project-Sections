@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Bracket
+from .models import Bracket, JoinRequest
 from django.db import models
 from django import forms
 from accounts.models import Account
@@ -23,20 +23,18 @@ class BracketAdmin(admin.ModelAdmin):
 admin.site.register(Bracket, BracketAdmin)
 
 
-# class JoinRequestAdmin(admin.ModelAdmin):
-#     readonly_fields = [
-#         'account',
-#         'bracket',
-#         'date_created',
-#         'accepted',
-#         'is_active',
-#     ]
-#     list_display = [
-#         'account',
-#         'bracket',
-#         'date_created',
-#         'accepted',
-#         'is_active',
-#     ]
+class JoinRequestAdmin(admin.ModelAdmin):
+    readonly_fields = [
+        'account',
+        'bracket',
+        'date_created',
+        'accepted',
+    ]
+    list_display = [
+        'account',
+        'bracket',
+        'date_created',
+        'accepted',
+    ]
 
-# admin.site.register(JoinRequest, JoinRequestAdmin)
+admin.site.register(JoinRequest, JoinRequestAdmin)

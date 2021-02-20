@@ -10,10 +10,8 @@ def wall(request):
         return render(request, 'walls/student.html')
     elif user.role == 'T':
         return render(request, 'walls/teacher.html')
-    elif user.is_superuser:
-        return redirect('/admin/')
     elif user.is_staff:
-        return redirect('walls/administrator.html')
+        return redirect('walls:administrator_path')
 
 @login_required(login_url="/accounts/login/")
 def administrator_wall(request):

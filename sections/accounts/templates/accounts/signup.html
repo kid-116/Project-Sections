@@ -1,10 +1,66 @@
-{% extends 'base_layout.html' %}
+{% load static %}
 
-{% block content %}
-    <h2>Signup</h2>
-    <form class="site-form" action="{% url 'accounts:signup_path' %}" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Signup">
-    </form>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project Sections</title>
+        <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base_layout.css' %}">
+        <link rel="stylesheet" href="{% static 'css/site-form.css' %}">
+        <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    </head>
+    <body>
+        <div class="width-lim">
+            <header class="primary-header">
+                <a href="{% url 'homepage_path' %}">
+                    <div class="logo">
+                        <h1>Sections</h1>
+                    </div>
+                </a>
+                <nav>
+                    <ul>
+                        <a href="{% url 'accounts:login_path' %}"><li>Login</li></a>
+                    </ul>
+                </nav>
+            </header>
+        </div>  
+        <div class="wrapper">
+            <aside>
+                <h3>Register With Us Today!</h3>
+                <p>We at sections try to do our best to satisfy our faithful users. The only thing we look forward to is serving our beloved members to the best of our capabilities.</p>
+                <h4>Why Join?</h4>
+                <ul>
+                    <li>Easy to use</li>
+                    <li>We respect your privacy</li>
+                    <li>It's free. Give it a shot</li>
+                </ul>
+            </aside>
+            <main>
+            <h2>Signup</h2>
+                <form class="site-form" action="{% url 'accounts:signup_path' %}" method="post">
+                    {% csrf_token %}
+                    <table>
+                        {% for field in form.visible_fields %}
+                            <tr>
+                                <th>{{ field.label_tag }}</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ field }}
+                                    {% if field.help_text %}<br />
+                                        {{ field.help_text }}
+                                    {% endif %}
+                                    {% if field.errors %}<br>
+                                        {{ field.errors }}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    <input type="submit" value="Signup" class="go">
+                </form>
+            </main>
+        </div>
+    </body>
+</html>
