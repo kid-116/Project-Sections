@@ -1,0 +1,29 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}
+    Sections | My Organisations
+{% endblock %}
+
+{% block content %}
+    <div class="three-one">
+        <ul class="three tiles">
+            {% for org in orgs %}
+                <a href="{% url 'organisations:home_path' id_o=org.id %}">
+                    <li class="{{ org.is_activated }}">
+                        <img src="{{ org.thumb.url }}"><br>
+                        {{ org.name }}
+                    </li>
+                </a>
+            {% endfor %}
+        </ul>
+        <nav class="page-nav">
+            <ul class="border border-one">
+                <li><a href="{% url 'organisations:register_path' %}">Register Your Organisation</a></li>
+                <li><a href="{% url 'organisations:joinreq_path' %}">Join an Organisation</a></li>
+                {% if request.user.is_superuser %}
+                    <li><a href="{% url 'organisations:index_regreqs_path' %}" class="admin">Check Onboarding Requests</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endblock %}

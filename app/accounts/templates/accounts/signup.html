@@ -1,0 +1,53 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}
+    Sections | Signup
+{% endblock %}
+
+{% block style %}
+    <style>
+        .signup {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper one-one lim-width">
+        <main>
+            <h1>Signup</h1>
+            <form action="{% url 'accounts:signup_path' %}" method="post" class="border-right">
+                {% csrf_token %}
+                <table class="form-table">
+                    {% for field in form.visible_fields %}
+                        <tr>
+                            <th>{{ field.label_tag }}</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ field }}
+                                {% if field.help_text %}<br>
+                                    {{ field.help_text }}
+                                {% endif %}
+                                {% if field.errors %}<br>
+                                    {{ field.errors }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <input type="submit" value="Signup" class="btn-fsubmit">
+            </form>
+        </main>
+        <aside class="form-help">
+            <h2>Register With Us Today!</h2>
+            <p>We at sections try to do our best to satisfy our faithful users. The only thing we look forward to is serving our beloved members to the best of our capabilities.</p>
+            <h3>Why Join?</h3>
+            <ul>
+                <li>Easy to use</li>
+                <li>We respect your privacy</li>
+                <li>It's free. Give it a shot</li>
+            </ul>
+        </aside>
+    </div>
+{% endblock %}

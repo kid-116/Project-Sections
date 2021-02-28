@@ -1,0 +1,45 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}
+    Sections | Register Your Organisation
+{% endblock %}
+
+{% block style %}
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper one-one lim-width">
+        <main>
+            <h1>Register Your Organisation</h1>
+            <form class="border-right" action="{% url 'organisations:register_path' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class="form-table">
+                    {% for field in form.visible_fields %}
+                        <tr>
+                            <th>{{ field.label_tag }}</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ field }}
+                                {% if field.help_text %}<br />
+                                    {{ field.help_text }}
+                                {% endif %}
+                                {% if field.errors %}<br>
+                                    {{ field.errors }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <input type="submit" value="Request Onboarding" class="btn-fsubmit"> 
+            </form>
+        </main>
+        <aside class="form-help">
+            <h3>Why Join?</h3>
+            <ul>
+                <li>Streamline your communication</li>
+                <li>Manage your groups</li>
+            </ul>
+        </aside>
+    </div>
+{% endblock %}

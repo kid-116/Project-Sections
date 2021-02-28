@@ -1,0 +1,20 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}
+    Sections | Organisation Registration Requests
+{% endblock %}
+
+{% block content %}
+    <div class="left">
+        <h1>Organisation Onboarding</h2>
+        <ul class="requests">
+            {% for req in reg_requests %}
+                <li>
+                    <span class="name">{{ req.name }}</span>
+                    <a href="{% url 'organisations:accept_regreq_path' id_o=req.id %}" class="a">Accept</a>  
+                    <a href="{% url 'organisations:decline_regreq_path' id_o=req.id %}" class="d">Decline</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
