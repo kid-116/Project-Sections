@@ -1,2 +1,2 @@
-# project_sections
-A place to manage your class activities.
+# Project Sections
+A place to coordinate with your colleagues
