@@ -1,0 +1,10 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h2>Start a New Section</h2>
+    <form class="site-form" action="{% url 'brackets:create_path' id_o=id_o  %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Create Section">
+    </form>
+{% endblock %}

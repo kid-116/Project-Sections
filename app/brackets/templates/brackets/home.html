@@ -1,0 +1,15 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h2>{{ bracket.name }} Home</h2>
+    <h3>User Join Requests</h3>
+    <ul>
+        {% for joinreq in joinreqs %}
+            <li>
+                {{ joinreq.account.username }}  |   {{ joinreq.account.role }} | {{ joinreq.date_created }}<br>
+                <a href="{% url 'brackets:accept_joinreq_path' id_r=joinreq.id %}">Accept</a>    |   
+                <a href="{% url 'brackets:decline_joinreq_path' id_r=joinreq.id %}">Decline</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,392 @@
+/* 
+    ====================
+    Reset
+    ====================
+*/
+/* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
+  License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/* 
+    ====================
+    Base Layout
+    ====================
+*/
+.primary-header {
+    background: linear-gradient(to right, #57bc90, #015249);
+    height: 15vh;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    padding: 0 200px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 10px solid #fff;
+    font-size: 140px;
+    font-family: ui-rounded;
+    letter-spacing: 3px;
+    color: #fff;
+}
+
+.auth-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 25px 0;
+}
+.auth-nav a:link,
+.auth-nav a:visited {
+    color: #fff;
+    font-size: 28px;
+}
+.auth-nav li {
+    display: inline-block;
+    border: 1px solid #fff;
+    width: 120px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 8px 0;
+    margin: 0 10px;
+}
+.auth-nav li:hover {
+    background: #fff;
+    color: #015249;
+}
+
+.username li {
+    border: none;
+}
+.username li:hover {
+    background: none;
+}
+
+/* Messages */
+.messages {
+  width: 700px;
+  margin: 0 auto;
+}
+.messages li {
+  margin: 15px 0;
+  text-align: center;
+  font-size: 25px;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.messages .success {
+  background: rgba(0, 255, 0, 0.3);
+  }
+.messages .info {
+  background: rgba(0,0, 255, 0.2);
+}
+
+/* 
+    ====================
+    General
+    ====================
+*/
+.wrapper {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+}
+.one-one {
+    grid-template-columns: 1fr 1fr;
+}
+
+.left {
+  padding: 0 200px;
+}
+
+.three-one {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 3fr 1fr;
+  padding: 0 200px;
+}
+
+.lim-width {
+  width: 960px;
+}
+
+/* Headings */
+h1 {
+    margin: 50px 0 30px 0;
+    font-size: 60px;
+    color: #57bc90;
+}
+h2 {
+  margin: 30px 0 10px 0;
+  font-size: 50px;
+  color: #77c9d4;
+}
+h3 {
+  margin: 20px 0 8px 0;
+  font-size: 35px;
+  color: #e27d60;
+}
+
+p {
+    font-size: 20px;
+    padding-left: 10px;
+    line-height: 25px;
+}
+
+/* Links */
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+/* 
+    ====================
+    Forms
+    ====================
+*/
+form {
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.border {
+    border: 2px solid #015249;
+}
+.border-one {
+  border-radius: 10px 0;
+}
+.border-right {
+  padding-right: 20px;
+  border-right: 2px solid #015249;
+}
+
+.errorlist {
+    font-size: 25px;
+    letter-spacing: 1px;
+    color: #015249;
+    background: rgba(255, 0, 0, 0.4);
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-top: 10px;
+    width: 80%;
+}
+
+.btn-fsubmit {
+  width: auto;
+  margin: 30px 0 10px 0;
+  padding: 4px 15px;
+  background: #fff;
+  border: 2px solid #015249;
+  border-radius: 5px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-size: 28px;
+}
+.btn-fsubmit:hover {
+  background: #015249;
+  color: #fff;
+}
+
+/* Table */
+.form-table {
+  text-align: left;
+}
+.form-table th {
+    width: 300px;
+    padding: 30px 0 10px 0;
+    font-size: 40px;
+    color: #015249;
+    letter-spacing: 2px;
+}
+.form-table input,
+.form-table select {
+    height: 35px;
+    width: 350px;
+    font-size: 25px;
+    font-family: system-ui;
+}
+.form-table .info {
+  font-size: 25px;
+}
+
+.upt-lnk {
+  font-size: 25px;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  width: auto;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="file"] {
+  height: auto;
+}
+
+/* Aside */
+.form-help {
+    width: 300px;
+    margin-left: 50px;
+}
+.form-help ul {
+    padding-left: 40px;
+    list-style: square;
+}
+.form-help li {
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-family: system-ui
+}
+
+/*
+    ====================
+    Page Nav
+    ====================
+*/
+.page-nav {
+  margin-top: 20px;
+}
+.page-nav ul {
+  padding: 10px 35px;
+  list-style: disc;
+  color: #57bc90;
+}
+.page-nav li {
+  margin-bottom: 10px;
+}
+
+.page-nav a {
+  font-size: 30px;
+  color: #77c9d4;
+}
+.page-nav a.admin {
+  font-variant: small-caps;
+  color: #77c9ff;
+}
+.page-nav a:hover {
+  text-decoration: underline;
+}
+
+/*
+    ====================
+    Tile Index
+    ====================
+*/
+.three {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.tiles img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+.tiles li {
+  text-align: center;
+  width: 300px;
+  font-size: 40px;
+  padding: 20px 10px;
+  margin: 20px 20px;
+  border-radius: 10px;
+  background: rgba(165, 165, 175, 0.1);
+  overflow-wrap: break-word;
+}
+.tiles li:hover {
+  background: rgba(165, 165, 175, 0.2);
+}
+.tiles li[class="None"] {
+  color: rgba(165, 165, 175, 0.7)
+}
+.tiles li[class="False"] {
+  color: rgba(255, 0, 0, 0.6)
+}
+.tiles li[class="True"] {
+  color: #015249;
+}
+
+/* Requests */
+.requests ul {
+  margin: 100px;
+}
+.requests li {
+  display: grid;
+  grid-template-columns: 9fr 1fr 1fr;
+  box-shadow: 1px 1px 1px 1px #a5a5af;
+  padding: 10px 20px;
+  height: auto;
+  width: auto;
+  margin: 30px 0;
+  align-items: center;
+  overflow-wrap: break-word;
+}
+.requests li:hover {
+  background: rgba(165, 165, 175, 0.1);
+}
+.requests .name {
+  font-size: 50px;
+  padding: 10px 30px;
+}
+.requests a {
+  font-size: 30px;
+}
+.requests a:hover {
+  text-decoration: underline;
+}
+.requests .a:link,
+.requests .a:visited {
+  color: #57bc90;
+}
+.requests .d:link,
+.requests .d:visited {
+  color: rgba(255, 0, 0, 0.7);
+}

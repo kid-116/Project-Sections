@@ -1,0 +1,30 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}
+    Sections | {{ org.name }}
+{% endblock %}
+
+{% block content %}
+    <div class="left">
+        <h1>{{ org.name }}</h1>
+        <h2>Your Sections</h2>
+    </div>
+    <div class="three-one">
+        <ul class="three tiles">
+            {% for bracket in user_brackets %}
+                <a href="">
+                    <li>{{ bracket.name }}</li>
+                </a>
+            {% endfor %}
+        </ul>
+        <nav class="page-nav">
+            <ul class="border border-one">
+                <li><a href="{% url 'walls:orgs_path' %}">Go Back</a></li>
+                <li><a href="">Join a Section</a></li>
+                {% if is_orgadmin %}
+                    <li><a href="" class="admin">Admin Page</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endblock %}
